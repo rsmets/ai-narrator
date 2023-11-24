@@ -116,7 +116,6 @@ def _main():
         new_image_path = os.path.join(dir_path, "image.jpg")
         shutil.copy(image_path, new_image_path)
         image_path = new_image_path
-        print(f"📸 Image saved to {image_path}")
 
     # getting the base64 encoding
     base64_image = encode_image(image_path)
