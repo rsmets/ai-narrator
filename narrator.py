@@ -58,6 +58,11 @@ def play_audio(text, dir_path=None):
     with open(file_path, "wb") as f:
         f.write(audio)
 
+    # Copy the image analyzed to the same directory as the audio file
+    image_path = os.path.join(os.getcwd(), "./frames/frame.jpg")
+    new_image_path = os.path.join(dir_path, "image.jpg")
+    shutil.copy(image_path, new_image_path)
+
     play(audio)
 
 
