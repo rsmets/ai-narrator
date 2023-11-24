@@ -1,6 +1,7 @@
 import base64
 import errno
 import os
+import shutil
 import time
 
 from dotenv import load_dotenv
@@ -51,7 +52,7 @@ def play_audio(text):
         stream(audio)
         return
 
-    # Save the audio to a file and play it
+    # Save the audio to a file
     unique_id = base64.urlsafe_b64encode(os.urandom(30)).decode("utf-8").rstrip("=")
     dir_path = os.path.join("narration", unique_id)
     os.makedirs(dir_path, exist_ok=True)
@@ -59,6 +60,11 @@ def play_audio(text):
 
     with open(file_path, "wb") as f:
         f.write(audio)
+
+    # Copy the image analyzed to the same directory as the audio file
+    image_path = os.path.join(os.getcwd(), "./frames/frame.jpg")
+    new_image_path = os.path.join(dir_path, "image.jpg")
+    shutil.copy(image_path, new_image_path)
 
     play(audio)
 
