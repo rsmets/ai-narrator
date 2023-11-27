@@ -32,6 +32,8 @@ Make a new voice in Eleven and get the voice id of that voice using their [get v
 export ELEVENLABS_VOICE_ID=<voice-id>
 ```
 
+_Note: In order to use David's voice you'll need to train an Eleven Labs voice model. A suitable mp3 file can be found [here](https://github.com/cbh123/narrator/issues/3#issuecomment-1813250652)._
+
 ## Run it!
 
 In on terminal, run the webcam capture:
